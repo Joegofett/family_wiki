@@ -1,0 +1,14 @@
+From python
+
+WORKDIR C:\Users\joeo1\work\family_wiki
+
+
+COPY \\requirements.txt .
+RUN pip install --no-cache- -r requirements
+
+RUN ["virtualenv" , "virt"]
+RUN ["source", "virt/bin/activate"]
+
+RUN pip install waitress
+
+RUN ["waitress-serve"], ["--call"], ['family_wiki:create_app']

@@ -1,0 +1,4 @@
+include family_wiki/schema.sql
+graft family_wiki/static
+graft family_wiki/templates
+global-exclude *.pyc
