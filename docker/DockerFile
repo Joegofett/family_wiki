@@ -1,14 +1,12 @@
-From python
+# Set the base image to Python
+From ubuntu:latest
+# File Author / Maintainer
+MAINTAINER -Joe
 
-WORKDIR C:\Users\joeo1\work\family_wiki
+RUN apt-get update
+RUN apt-get install -y python3 python3-pip nginx
+RUN pip3 install uwsgi
 
+RUN pip install git pull https://github.com/Joegofett/family_wiki.git
 
-COPY \\requirements.txt .
-RUN pip install --no-cache- -r requirements
-
-RUN ["virtualenv" , "virt"]
-RUN ["source", "virt/bin/activate"]
-
-RUN pip install waitress
-
-RUN ["waitress-serve"], ["--call"], ['family_wiki:create_app']
+RUN pip3 install -r requirements.txt
